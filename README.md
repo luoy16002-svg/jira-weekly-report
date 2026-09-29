@@ -26,6 +26,17 @@ python jira_report.py --demo              # sample data, no Jira needed
 
 The API token stays in your `.env` on your own machine or server.
 
+## Settings
+
+| Setting | Where to find it |
+|---|---|
+| `JIRA_URL` | Your site address, e.g. `https://your-team.atlassian.net` |
+| `JIRA_EMAIL` | The email you sign in to Jira with |
+| `JIRA_API_TOKEN` | Atlassian account settings → Security → **Create and manage API tokens** (`https://id.atlassian.com/manage-profile/security/api-tokens`) |
+| `JIRA_BOARD_ID` | The number in the board's address, e.g. `.../projects/APP/boards/12` → `12` |
+| `JIRA_STORY_POINTS_FIELD` | Optional. Open `https://your-team.atlassian.net/rest/api/3/field` while signed in and search for "Story point"; use its `id`, e.g. `customfield_10016`. Without it, points show as 0 and the burndown counts nothing. |
+| `REPORT_TITLE` | Optional heading for the PDF |
+
 ## Every week, automatically
 
 - **Linux cron:** `0 8 * * MON cd /opt/jira-report && .venv/bin/python jira_report.py`
